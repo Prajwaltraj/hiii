@@ -336,15 +336,30 @@
     submitBtn.textContent = '⌛ Dispatching…';
     submitBtn.disabled = true;
 
-    // Simulate async send (replace with real fetch/EmailJS/Formspree)
-    await new Promise(r => setTimeout(r, 1400));
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('https://formsubmit.co/ajax/prajwaltraj@outlook.in', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json'
+        },
+        body: formData
+      });
 
-    form.reset();
-    if (success) { success.style.display = 'block'; }
-    submitBtn.innerHTML = '<span>⚔ Send the War Signal</span>';
-    submitBtn.disabled = false;
-
-    setTimeout(() => { if (success) success.style.display = 'none'; }, 5000);
+      if (response.ok) {
+        form.reset();
+        if (success) { success.style.display = 'block'; }
+        setTimeout(() => { if (success) success.style.display = 'none'; }, 5000);
+      } else {
+        alert("Failed to send the message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error sending message. Please check your network connection.");
+    } finally {
+      submitBtn.innerHTML = '<span>⚔ Send the War Signal</span>';
+      submitBtn.disabled = false;
+    }
   });
 })();
 
