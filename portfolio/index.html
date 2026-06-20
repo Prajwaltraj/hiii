@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prajwal T Raj — Warrior Portfolio</title>
+  <meta name="description" content="Portfolio of Prajwal T Raj — Full Stack Developer & Data Science Enthusiast" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       LOADING SCREEN
+  ══════════════════════════════════════ -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-rune">⚔</div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <p class="loader-text">Forging your experience…</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       THREE.JS CANVAS — 3D BACKGROUND
+  ══════════════════════════════════════ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ══════════════════════════════════════
+       CURSOR GLOW
+  ══════════════════════════════════════ -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ══════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-symbol">⚔</span>
+      <span class="logo-text">PRAJWAL T RAJ</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="nav-link">Origin</a></li>
+      <li><a href="#about" class="nav-link">Chronicle</a></li>
+      <li><a href="#skills" class="nav-link">Arsenal</a></li>
+      <li><a href="#projects" class="nav-link">Conquests</a></li>
+      <li><a href="#contact" class="nav-link">Summon</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO SECTION — THE AWAKENING
+  ══════════════════════════════════════ -->
+  <section class="section hero" id="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="chapter-label">Chapter I — The Awakening</div>
+
+      <p class="hero-subtitle">In a world forged by code and creativity, a warrior rises…</p>
+
+      <h1 class="hero-name">
+        <span class="name-line" id="heroTyping"></span><span class="typing-cursor">|</span>
+      </h1>
+
+      <p class="hero-title" id="heroSubTyping"></p>
+
+      <p class="hero-tagline">
+        "Every pixel a battle. Every project a conquest."
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span>View Conquests</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-outline">Summon Me</a>
+      </div>
+
+      <!-- Floating rune badges -->
+      <div class="rune-badges">
+        <span class="rune-badge">⚔ Full Stack</span>
+        <span class="rune-badge">🛡 Data Science</span>
+        <span class="rune-badge">🔥 Machine Learning</span>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll to begin</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ABOUT SECTION — THE CHRONICLE
+  ══════════════════════════════════════ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="chapter-label">Chapter II — The Chronicle</div>
+      <h2 class="section-title">Who Is the Warrior?</h2>
+
+      <div class="about-grid">
+        <!-- Avatar / Portrait -->
+        <div class="about-portrait" id="portraitContainer">
+          <div class="portrait-frame">
+            <div class="portrait-inner">
+              <img
+                src="assets/profile.jpg"
+                alt="Prajwal T Raj"
+                class="portrait-img"
+                onerror="this.style.display='none'; document.getElementById('portraitFallback').style.display='flex';"
+              />
+              <div class="portrait-fallback" id="portraitFallback">
+                <span class="portrait-icon">⚔</span>
+                <span class="portrait-placeholder">Prajwal T Raj</span>
+              </div>
+            </div>
+            <div class="portrait-glow"></div>
+            <div class="portrait-runes">
+              <span class="pr pr1">☽</span>
+              <span class="pr pr2">✦</span>
+              <span class="pr pr3">⚡</span>
+              <span class="pr pr4">◈</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Text -->
+        <div class="about-story">
+          <p class="story-para">
+            Born in the realm of <strong>Bengaluru, INDIA</strong>, I am a 
+            <strong>Full Stack Developer & Data Science Enthusiast</strong> who wields the power of modern technology 
+            to craft digital experiences and intelligent systems that stand the test of time.
+          </p>
+          <p class="story-para">
+            Holding a Bachelor of Engineering from the Global Academy of Technology, my journey is a relentless pursuit of knowledge across Web Development, Machine Learning, and Data Analytics. From building robust MERN stack applications like Notion clones to deploying PCA-based image compression algorithms, I thrive at the intersection of complex logic and intuitive design.
+          </p>
+          <p class="story-para">
+            When not at war with complex problems, I explore 
+            <strong>new UI/UX trends and innovative AI integrations</strong> — always seeking new quests.
+          </p>
+
+          <!-- Stats -->
+          <div class="stat-grid">
+            <div class="stat-card">
+              <span class="stat-num" data-target="6">0</span>
+              <span class="stat-label">Projects Conquered</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-target="2">0</span>
+              <span class="stat-label">Years in Battle</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-target="20">0</span>
+              <span class="stat-label">Technologies Mastered</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-target="1">0</span>
+              <span class="stat-label">Publications</span>
+            </div>
+          </div>
+
+          <!-- Resume -->
+          <a href="#" class="btn btn-primary" target="_blank" id="resumeBtn">
+            <span>⬇ Download War Scroll (Resume)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SKILLS SECTION — THE ARSENAL
+  ══════════════════════════════════════ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="chapter-label">Chapter III — The Arsenal</div>
+      <h2 class="section-title">Weapons Mastered</h2>
+      <p class="section-sub">Tools forged through years of battle — each skill a blade in the warrior's arsenal.</p>
+
+      <div class="skills-grid" id="skillsGrid">
+
+        <!-- CATEGORY 1 -->
+        <div class="skill-category">
+          <h3 class="skill-cat-title">
+            <span class="skill-cat-icon">⚔</span>
+            Web Development
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="90">
+              <div class="skill-info">
+                <span class="skill-name">HTML5, CSS3, JS</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item" data-level="85">
+              <div class="skill-info">
+                <span class="skill-name">React.js</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item" data-level="80">
+              <div class="skill-info">
+                <span class="skill-name">Node.js & Express.js</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATEGORY 2 -->
+        <div class="skill-category">
+          <h3 class="skill-cat-title">
+            <span class="skill-cat-icon">🛡</span>
+            Machine Learning & AI
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="85">
+              <div class="skill-info">
+                <span class="skill-name">Python</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item" data-level="75">
+              <div class="skill-info">
+                <span class="skill-name">Scikit-learn / TensorFlow</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item" data-level="80">
+              <div class="skill-info">
+                <span class="skill-name">Pandas / NumPy</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATEGORY 3 -->
+        <div class="skill-category">
+          <h3 class="skill-cat-title">
+            <span class="skill-cat-icon">🔥</span>
+            Data Science & Analytics
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="80">
+              <div class="skill-info">
+                <span class="skill-name">Feature Engineering</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item" data-level="80">
+              <div class="skill-info">
+                <span class="skill-name">PCA / SVD</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item" data-level="85">
+              <div class="skill-info">
+                <span class="skill-name">Matplotlib / Plotly</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATEGORY 4 -->
+        <div class="skill-category">
+          <h3 class="skill-cat-title">
+            <span class="skill-cat-icon">✦</span>
+            Tools & Technologies
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="85">
+              <div class="skill-info">
+                <span class="skill-name">Git / GitHub</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item" data-level="80">
+              <div class="skill-info">
+                <span class="skill-name">VS Code / Ubuntu</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item" data-level="75">
+              <div class="skill-info">
+                <span class="skill-name">Tableau / PowerBI</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /skills-grid -->
+
+      <!-- Tech icon pills -->
+      <div class="tech-pills">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Java</span>
+        <span class="tech-pill">JavaScript</span>
+        <span class="tech-pill">React.js</span>
+        <span class="tech-pill">Node.js</span>
+        <span class="tech-pill">TensorFlow</span>
+        <span class="tech-pill">Scikit-learn</span>
+        <span class="tech-pill">PostgreSQL</span>
+        <span class="tech-pill">Firebase</span>
+        <span class="tech-pill">Tableau</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PROJECTS SECTION — THE CONQUESTS
+  ══════════════════════════════════════ -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="chapter-label">Chapter IV — The Conquests</div>
+      <h2 class="section-title">Battles Won</h2>
+      <p class="section-sub">Each project a campaign — fought, built, and delivered.</p>
+
+      <!-- Filter tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Quests</button>
+        <button class="filter-tab" data-filter="web">Web App</button>
+        <button class="filter-tab" data-filter="ml">Machine Learning</button>
+        <button class="filter-tab" data-filter="data">Data Science</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- PROJECT CARD 1 -->
+        <div class="project-card featured" data-category="web">
+          <div class="featured-badge">⭐ Featured</div>
+          <div class="project-img-wrap">
+            <div class="proj-img-fallback" style="display:flex;">
+              <span>📝</span>
+              <span>NovaNote</span>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="proj-btn" target="_blank">Live</a>
+              <a href="#" class="proj-btn" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="proj-tag">MERN Stack</span>
+              <span class="proj-tag">Tailwind CSS</span>
+              <span class="proj-tag">Firebase</span>
+            </div>
+            <h3 class="project-title">NovaNote - Notion Clone</h3>
+            <p class="project-desc">A Notion-inspired note-taking platform featuring rich text editing, nested pages, dark mode, version history, and media uploads. Built with secure JWT authentication and Framer Motion animations.</p>
+            <div class="project-links">
+              <a href="#" class="proj-link" target="_blank">→ View Live</a>
+              <a href="#" class="proj-link ghost" target="_blank">⌥ Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT CARD 2 -->
+        <div class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <div class="proj-img-fallback" style="display:flex;">
+              <span>🎓</span>
+              <span>Club Portal</span>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="proj-btn" target="_blank">Live</a>
+              <a href="#" class="proj-btn" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Flask</span>
+              <span class="proj-tag">PostgreSQL</span>
+            </div>
+            <h3 class="project-title">Student Club Membership System</h3>
+            <p class="project-desc">A full-stack portal for managing college club registrations and member tracking. Enabled role-based access control, media uploads, and JWT-secured login.</p>
+            <div class="project-links">
+              <a href="#" class="proj-link" target="_blank">→ View Live</a>
+              <a href="#" class="proj-link ghost" target="_blank">⌥ Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT CARD 3 -->
+        <div class="project-card" data-category="ml">
+          <div class="project-img-wrap">
+            <div class="proj-img-fallback" style="display:flex;">
+              <span>👤</span>
+              <span>Face Recog</span>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="proj-btn" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">NumPy</span>
+              <span class="proj-tag">Scikit-learn</span>
+            </div>
+            <h3 class="project-title">Face Recognition Using PCA</h3>
+            <p class="project-desc">Applied Principal Component Analysis on the Olivetti Faces dataset to perform face recognition, achieving over 90% accuracy using nearest neighbor classification.</p>
+            <div class="project-links">
+              <a href="#" class="proj-link ghost" target="_blank">⌥ Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT CARD 4 -->
+        <div class="project-card" data-category="data">
+          <div class="project-img-wrap">
+            <div class="proj-img-fallback" style="display:flex;">
+              <span>🗜</span>
+              <span>Image Comp.</span>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="proj-btn" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">Matplotlib</span>
+            </div>
+            <h3 class="project-title">Image Compression Using PCA</h3>
+            <p class="project-desc">Implemented image compression using PCA to reduce dimensionality with minimal visual loss, achieving 10× size reduction while retaining over 95% structural similarity.</p>
+            <div class="project-links">
+              <a href="#" class="proj-link ghost" target="_blank">⌥ Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT CARD 5 -->
+        <div class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <div class="proj-img-fallback" style="display:flex;">
+              <span>🌐</span>
+              <span>Portfolio</span>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="proj-btn" target="_blank">Live</a>
+              <a href="#" class="proj-btn" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Tailwind CSS</span>
+            </div>
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <p class="project-desc">Designed a modern portfolio site to showcase projects, resume, and GitHub contributions with smooth scroll navigation and custom animations.</p>
+            <div class="project-links">
+              <a href="#" class="proj-link" target="_blank">→ View Live</a>
+              <a href="#" class="proj-link ghost" target="_blank">⌥ Source</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT CARD 6 -->
+        <div class="project-card" data-category="web">
+          <div class="project-img-wrap">
+            <div class="proj-img-fallback" style="display:flex;">
+              <span>📱</span>
+              <span>App Clones</span>
+            </div>
+            <div class="project-overlay">
+              <a href="#" class="proj-btn" target="_blank">Live</a>
+              <a href="#" class="proj-btn" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="proj-tag">HTML / CSS</span>
+              <span class="proj-tag">React</span>
+            </div>
+            <h3 class="project-title">Instagram & Amazon Clones</h3>
+            <p class="project-desc">Recreated responsive UI clones of Instagram and Amazon to practice frontend architecture, focusing on layout accuracy, responsive grid systems, and component-based design.</p>
+            <div class="project-links">
+              <a href="#" class="proj-link" target="_blank">→ View Live</a>
+              <a href="#" class="proj-link ghost" target="_blank">⌥ Source</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       TIMELINE / EXPERIENCE — THE JOURNEY
+  ══════════════════════════════════════ -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="chapter-label">Chapter V — The Journey</div>
+      <h2 class="section-title">Path of the Warrior</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot">🎓</div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023</span>
+            <h3 class="timeline-title">Bachelor of Engineering</h3>
+            <h4 class="timeline-org">Global Academy of Technology</h4>
+            <p class="timeline-desc">Graduated with a comprehensive understanding of software engineering, artificial intelligence, and scalable system design.</p>
+            <div class="timeline-tags">
+              <span class="t-tag">Engineering</span>
+              <span class="t-tag">Computer Science</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">🎓</div>
+          <div class="timeline-content">
+            <span class="timeline-date">2021 – 2022</span>
+            <h3 class="timeline-title">Pre-University Education</h3>
+            <h4 class="timeline-org">PES Pre University College</h4>
+            <p class="timeline-desc">Built a strong foundation in analytical thinking, advanced mathematics, and core sciences.</p>
+            <div class="timeline-tags">
+              <span class="t-tag">Science & Math</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">✦</div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024</span>
+            <h3 class="timeline-title">Infosys Springboard Certification</h3>
+            <h4 class="timeline-org">Infosys</h4>
+            <p class="timeline-desc">Completed rigorous certification covering industry-standard software engineering practices and agile development methodologies.</p>
+            <div class="timeline-tags">
+              <span class="t-tag">Certification</span>
+              <span class="t-tag">Software Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">📝</div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024</span>
+            <h3 class="timeline-title">Research Publication</h3>
+            <h4 class="timeline-org">Medium Publication</h4>
+            <p class="timeline-desc">"Detecting Financial Fraud Using Logistic Regression with Regularization and Model Evaluation Metrics"</p>
+            <div class="timeline-tags">
+              <span class="t-tag">Machine Learning</span>
+              <span class="t-tag">Fraud Detection</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /timeline -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACT SECTION — THE SUMMON
+  ══════════════════════════════════════ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="chapter-label">Final Chapter — The Summon</div>
+      <h2 class="section-title">Begin Your Quest</h2>
+      <p class="section-sub">Have a mission in mind? Send the war signal — I respond within 24 hours.</p>
+
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="contact-card">
+            <span class="contact-icon">📬</span>
+            <div>
+              <div class="contact-label">War Raven (Email)</div>
+              <a href="mailto:prajwaltraj@outlook.in" class="contact-value">prajwaltraj@outlook.in</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">📍</span>
+            <div>
+              <div class="contact-label">Kingdom (Location)</div>
+              <span class="contact-value">Bengaluru, INDIA</span>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">⚡</span>
+            <div>
+              <div class="contact-label">Status</div>
+              <span class="contact-value available">Available for Work / Open to Opportunities</span>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links">
+            <a href="#" class="social-link" target="_blank" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.1.82-.26.82-.57v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.78 1.3 3.46.99.1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.3.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.92 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="#" class="social-link" target="_blank" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.78C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.78 24h20.44C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="#" class="social-link" target="_blank" aria-label="Other">
+              <span style="font-size:1.2rem">⚔</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nameInput">Your Name</label>
+              <input type="text" id="nameInput" name="name" placeholder="Warrior's name…" required />
+            </div>
+            <div class="form-group">
+              <label for="emailInput">Your Email</label>
+              <input type="email" id="emailInput" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subjectInput">Subject</label>
+            <input type="text" id="subjectInput" name="subject" placeholder="Your quest title…" required />
+          </div>
+          <div class="form-group">
+            <label for="messageInput">Message</label>
+            <textarea id="messageInput" name="message" rows="5" placeholder="Describe your mission…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span>⚔ Send the War Signal</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✅ Message dispatched! I'll respond within 24 hours.
+          </div>
+        </form>
+
+      </div><!-- /contact-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-rune">⚔</div>
+    <p class="footer-name">Prajwal T Raj</p>
+    <p class="footer-tagline">Forged in Code. Sharpened by Design.</p>
+    <div class="footer-links">
+      <a href="#hero">Origin</a>
+      <a href="#about">Chronicle</a>
+      <a href="#skills">Arsenal</a>
+      <a href="#projects">Conquests</a>
+      <a href="#contact">Summon</a>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> Prajwal T Raj. All rights reserved. Crafted with ⚔ & ❤</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
